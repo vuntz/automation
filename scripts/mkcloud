@@ -942,8 +942,9 @@ function usage()
     echo "       : defines the installation source"
     echo
     echo " Optional"
-    echo "   hacloud='' | 1  (default='')"
-    echo "       : setup a high availability cloud, requires at least 6 nodes"
+    echo "   hacloud='' | 1 | 2  (default='')"
+    echo "       : 1 setup a high availability cloud, requires at least 6 nodes"
+    echo "       : 2 setup a high availability cloud, ha gm + released maintenance updates, requires at least 6 nodes"
     echo "   upgrade_cloudsource='' (default='')"
     echo "       : set new cloudsource for upgrade process"
     echo "   TESTHEAD='' | 1  (default='')"
