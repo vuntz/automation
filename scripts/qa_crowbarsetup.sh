@@ -1747,6 +1747,10 @@ function custom_configuration()
             proposal_set_value ipmi default "['attributes']['ipmi']['bmc_enable']" true
         ;;
         keystone)
+            if [ -n "$want_sles12_controller" ] && iscloudver 6plus ; then
+                proposal_set_value keystone default "['deployment']['keystone']['elements']['keystone-server']" "['$sle12controller']"
+            fi
+
             # set a custom region name
             if iscloudver 4plus ; then
                 proposal_set_value keystone default "['attributes']['keystone']['api']['region']" "'CustomRegion'"
@@ -1774,6 +1778,10 @@ function custom_configuration()
             fi
         ;;
         glance)
+            if [ -n "$want_sles12_controller" ] && iscloudver 6plus ; then
+                proposal_set_value glance default "['deployment']['glance']['elements']['glance-server']" "['$sle12controller']"
+            fi
+
             if [[ -n "$deployceph" ]]; then
                 proposal_set_value glance default "['attributes']['glance']['default_store']" "'rbd'"
             fi
@@ -1821,11 +1829,19 @@ function custom_configuration()
             fi
         ;;
         heat)
+            if [ -n "$want_sles12_controller" ] && iscloudver 6plus ; then
+                proposal_set_value heat default "['deployment']['heat']['elements']['heat-server']" "['$sle12controller']"
+            fi
+
             if [[ $hacloud = 1 ]] ; then
                 proposal_set_value heat default "['deployment']['heat']['elements']['heat-server']" "['cluster:$clusternameservices']"
             fi
         ;;
         ceilometer)
+            if [ -n "$want_sles12_controller" ] && iscloudver 6plus ; then
+                proposal_set_value ceilometer default "['deployment']['ceilometer']['elements']['ceilometer-cagent']" "['$sle12controller']"
+            fi
+
             if [[ $hacloud = 1 ]] ; then
                 proposal_set_value ceilometer default "['deployment']['ceilometer']['elements']['ceilometer-server']" "['cluster:$clusternameservices']"
                 proposal_set_value ceilometer default "['deployment']['ceilometer']['elements']['ceilometer-cagent']" "['cluster:$clusternameservices']"
@@ -1884,6 +1900,11 @@ function custom_configuration()
                 proposal_set_value neutron default "['deployment']['neutron']['elements']['neutron-network']" "['$sle12node']"
             fi
 
+            if [ -n "$want_sles12_controller" ] && iscloudver 6plus ; then
+                proposal_set_value neutron default "['deployment']['neutron']['elements']['neutron-server']" "['$sle12controller']"
+                proposal_set_value neutron default "['deployment']['neutron']['elements']['neutron-network']" "['$sle12controller']"
+            fi
+
             if [[ $hacloud = 1 ]] ; then
                 proposal_set_value neutron default "['deployment']['neutron']['elements']['neutron-server']" "['cluster:$clusternamenetwork']"
                 # neutron-network role is only available since Cloud5+Updates
@@ -1910,6 +1931,10 @@ function custom_configuration()
             fi
         ;;
         cinder)
+            if [ -n "$want_sles12_controller" ] && iscloudver 6plus ; then
+                proposal_set_value cinder default "['deployment']['cinder']['elements']['cinder-controller']" "['$sle12controller']"
+            fi
+
             if iscloudver 4 ; then
                 proposal_set_value cinder default "['attributes']['cinder']['enable_v2_api']" "true"
             fi
