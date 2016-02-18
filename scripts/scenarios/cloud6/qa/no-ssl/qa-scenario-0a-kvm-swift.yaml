@@ -26,13 +26,13 @@ proposals:
     cluster_hash: 181d253856
   deployment:
     elements:
-      swift-dispersion: []
       swift-proxy:
       - "@@controller@@"
       swift-ring-compute:
       - "@@controller@@"
       swift-storage:
-      - "@@storage-swift@@"
+      - "@@storage-swift1@@"
+      - "@@storage-swift2@@"
 
 - barclamp: glance
   deployment:
