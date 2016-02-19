@@ -59,6 +59,7 @@ proposals:
   attributes:
     ml2_mechanism_drivers:
     - openvswitch
+    use_l2pop: false
     ml2_type_drivers:
     - vlan
     ml2_type_drivers_default_provider_network: vlan
