@@ -94,7 +94,7 @@ proposals:
   attributes:
   deployment:
     elements:
-      horizon-server:
+      nova_dashboard-server:
       - "@@controller@@"
 
 - barclamp: heat
