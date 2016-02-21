@@ -90,7 +90,7 @@ proposals:
       nova-compute-qemu: []
       nova-compute-xen: []
 
-- barclamp: horizon
+- barclamp: nova_dashboard
   attributes:
   deployment:
     elements:
