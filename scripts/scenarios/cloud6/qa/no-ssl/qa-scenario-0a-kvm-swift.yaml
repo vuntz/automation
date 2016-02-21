@@ -80,7 +80,7 @@ proposals:
       ksm_enabled: true
   deployment:
     elements:
-      nova-controller:
+      nova-multi-controller:
       - "@@controller@@"
       nova-compute-hyperv: []
       nova-compute-kvm:
