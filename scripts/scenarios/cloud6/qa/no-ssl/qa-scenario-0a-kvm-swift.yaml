@@ -108,12 +108,12 @@ proposals:
   deployment:
     elements:
       ceilometer-agent:
-      - "@@controller@@"
+      - "@@compute-kvm1@@"
+      - "@@compute-kvm2@@"
+      - "@@compute-kvm3@@"
       ceilometer-cagent:
       - "@@controller@@"
       ceilometer-agent-hyperv: []
-      ceilometer-polling:
-      - "@@controller@@"
       ceilometer-server:
       - "@@controller@@"
       ceilometer-swift-proxy-middleware:
