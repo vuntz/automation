@@ -82,13 +82,10 @@ proposals:
     elements:
       nova-multi-controller:
       - "@@controller@@"
-      nova-compute-hyperv: []
-      nova-compute-kvm:
+      nova-multi-compute-kvm:
       - "@@compute-kvm1@@"
       - "@@compute-kvm2@@"
       - "@@compute-kvm3@@"
-      nova-compute-qemu: []
-      nova-compute-xen: []
 
 - barclamp: nova_dashboard
   attributes:
