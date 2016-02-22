@@ -109,7 +109,6 @@ proposals:
     elements:
       ceilometer-agent:
       - "@@compute-kvm1@@"
-      - "@@compute-kvm2@@"
       ceilometer-agent-hyperv: []
       ceilometer-polling:
       - "@@controller@@"
